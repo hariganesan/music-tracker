@@ -1,6 +1,5 @@
 ideas
 -------
--------
 
 tracking albums
 ---------------
