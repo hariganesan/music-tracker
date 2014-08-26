@@ -8,10 +8,32 @@
     <meta name="description" content="Track your favorite music - artists and albums history">
     <meta name="author" content="Hari Ganesan">
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400' rel='stylesheet' type='text/css'>
-    <title>Music Tracker 1.0</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,100' rel='stylesheet' type='text/css'>
+
+    <title>Music Tracker</title>
     <link href="static/css/main.css" rel="stylesheet" type="text/css" media="screen">
   </head>
   <body>
-    <p>hello, world</p>
+    <div id="input-container" class="container center">
+      <input type="text" autocomplete="off" autocorrect="off" placeholder="Type in an artist" title="" autocapitalize="off" spellcheck="false" class="input" required="" autofocus="true" maxlength="25" />
+    </div>
+    <div id="main-album-container" class="container left">
+      <ul id="album-list" style="">
+        <li><span class="album-year">(2014) </span><span class="album-name">A Dotted Line</span><span class="artist-name"> - Nickel Creek</span></li>
+        <li><span class="album-year">(2014) </span><span class="album-name">Lazaretto</span><span class="artist-name"> - Jack White</span></li>
+        <li><span class="album-year">(2014) </span><span class="album-name">After The Disco</span><span class="artist-name"> - Broken Bells</span></li>
+        <li><span class="album-year">(2014) </span><span class="album-name">Farm</span><span class="artist-name"> - Dinosaur Jr.</span></li>
+        <li><span class="album-year">(2014) </span><span class="album-name">Why Should The Fire Die?</span><span class="artist-name"> - Nickel Creek</span></li>
+      </ul>
+    </div>
+    <div id="main-artist-container" class="container right">
+      <div id="artist-clear">Clear artists</div>
+      <ul id="artist-list">
+        <li><span class="artist-name">Nickel Creek</span></li>
+        <li><span class="artist-name">Jack White</span></li>
+        <li><span class="artist-name">Broken Bells</span></li>
+        <li><span class="artist-name">Dinosaur Jr.</span></li>
+      </ul>
+    </div>
   </body>
 </html>

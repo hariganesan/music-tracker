@@ -1,6 +1,75 @@
 /* main.css - main styles */
 
 body {
-	color: 211;
-	background-color: #eee;
+  color: #E198B2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body, input {
+  background-color: #504870;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.input-container {
+  padding: 10px;
+}
+
+input {
+  font-size: 83px;
+  outline: 0;
+  color: #E198B2;
+  border: 0;
+  width: 600px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+#album-list {
+  font-size: 30px;
+  padding: 40px 20px;
+}
+
+#artist-list {
+  font-size: 15px;
+  padding: 20px 40px;
+}
+
+#artist-clear {
+  margin-top: 40px;
+  padding: 0px 40px;
+  color: #cce;
+  font-style: underline;
+}
+
+#artist-clear:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.album-name, .album-year {
+  color: #FEFEE0;
+}
+
+.artist-name {
+  font-style: italic;
+  color: #eebbcc;
 }
