@@ -88,7 +88,7 @@ li {
 }
 
 #artist-clear {
-  margin-top: 60px;
+  margin-top: 105px;
   padding: 0px 40px;
   color: #cce;
   font-style: underline;
@@ -126,4 +126,12 @@ li {
 
 .artist-name.enabled-false:hover {
   color: #ccc;
+}
+
+.visible-true {
+  visibility: visible;
+}
+
+.visible-false {
+  visibility: hidden;
 }

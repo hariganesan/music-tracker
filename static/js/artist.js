@@ -7,12 +7,15 @@ app.controller('ArtistController', ['$scope', '$http', '$templateCache',
   $scope.artists = [];
   $scope.albums = [];
   $scope.results = [];
+  $scope.clearVisible = false;
+  $scope.popularityThreshold = 10;
 
   $scope.addArtist = function(artistName, id) {
     $scope.artists.push({name:artistName, id:id, enabled: true});
     $scope.searchText = '';
     $scope.fetchAlbums(artistName, id);
     $scope.results = [];
+    $scope.clearVisible = true;
   }
 
   $scope.addArtistEnter = function() {
@@ -70,6 +73,7 @@ app.controller('ArtistController', ['$scope', '$http', '$templateCache',
     $scope.artists = [];
     $scope.albums = [];
     $scope.$broadcast('focusSearch');
+    $scope.clearVisible = false;
   };
 
   // AJAX stuff
@@ -99,16 +103,16 @@ app.controller('ArtistController', ['$scope', '$http', '$templateCache',
       success(function(data, status) {
         if (data.items) {
           angular.forEach(data.items, function(item) {
-            $scope.albums.push({
-              artist: artistName,
-              artistID: id,
-              name: item.name,
-              year: "????",
-              id: $scope.albums.length,
-              enabled: true
-            });
+              $scope.albums.push({
+                artist: artistName,
+                artistID: id,
+                name: item.name,
+                year: "????",
+                id: $scope.albums.length,
+                enabled: true
+              });
 
-            $scope.fetchAlbumDate(item.id, $scope.albums.length-1);
+              $scope.fetchAlbumDate(item.id, $scope.albums.length-1);
           });
         }
       }).

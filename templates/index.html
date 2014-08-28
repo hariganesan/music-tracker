@@ -30,7 +30,7 @@
       </ul>
     </div>
     <div id="artist-container" class="container right">
-      <div id="artist-clear" ng-click="clearArtists()">Clear all ({{artists.length}})</div>
+      <div id="artist-clear" class="visible-{{clearVisible}}" ng-click="clearArtists()">Clear all ({{artists.length}})</div>
       <ul id="artist-list">
         <li ng-repeat="artist in artists" ng-click="toggleArtist(artist)">
           <span class="artist-name enabled-{{artist.enabled}}">{{artist.name}}</span>
