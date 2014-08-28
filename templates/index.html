@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="artistApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +7,38 @@
     <meta name="title" content="Music Tracker 1.0">
     <meta name="description" content="Track your favorite music - artists and albums history">
     <meta name="author" content="Hari Ganesan">
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,100' rel='stylesheet' type='text/css'>
-
-    <title>Music Tracker</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,100' rel='stylesheet' type='text/css'>
     <link href="static/css/main.css" rel="stylesheet" type="text/css" media="screen">
+    <title>Music Tracker</title>
   </head>
-  <body>
+  <body ng-controller="ArtistController">
     <div id="input-container" class="container center">
-      <input type="text" autocomplete="off" autocorrect="off" placeholder="Type in an artist" title="" autocapitalize="off" spellcheck="false" class="input" required="" autofocus="true" maxlength="25" />
+      <form id="form-search" ng-submit="addArtist()">
+        <input id="input-search" type="text" ng-model="artistText" autocomplete="off" autocorrect="off" placeholder="Type in an artist" title="" autocapitalize="off" spellcheck="false" required="" autofocus="true" maxlength="25" focus-on="newItemAdded" />
+      </form>
+      <div id="results-container" class="container">
+        <ul id="results-list">
+          <li class="result-name" ng-repeat="result in results" ng-click="addArtistClick(result)">
+            {{result.name}}
+          </li>
+        </ul>
+      </div>
     </div>
     <div id="main-album-container" class="container left">
-      <ul id="album-list" style="">
-        <li><span class="album-year">(2014) </span><span class="album-name">A Dotted Line</span><span class="artist-name"> - Nickel Creek</span></li>
-        <li><span class="album-year">(2014) </span><span class="album-name">Lazaretto</span><span class="artist-name"> - Jack White</span></li>
-        <li><span class="album-year">(2014) </span><span class="album-name">After The Disco</span><span class="artist-name"> - Broken Bells</span></li>
-        <li><span class="album-year">(2014) </span><span class="album-name">Farm</span><span class="artist-name"> - Dinosaur Jr.</span></li>
-        <li><span class="album-year">(2014) </span><span class="album-name">Why Should The Fire Die?</span><span class="artist-name"> - Nickel Creek</span></li>
+      <ul id="album-list">
+        <li ng-repeat="album in albums | unique: 'album.name'"><span class="album-year">({{album.year}}) </span><span class="album-name">{{album.name}}</span><span class="artist-name"> - {{album.artist}}</span></li>
       </ul>
     </div>
     <div id="main-artist-container" class="container right">
-      <div id="artist-clear">Clear artists</div>
+      <div id="artist-clear" ng-click="clearArtists()">Clear all ({{artists.length}})</div>
       <ul id="artist-list">
-        <li><span class="artist-name">Nickel Creek</span></li>
-        <li><span class="artist-name">Jack White</span></li>
-        <li><span class="artist-name">Broken Bells</span></li>
-        <li><span class="artist-name">Dinosaur Jr.</span></li>
+        <li ng-repeat="artist in artists">
+          <input style="display: none;" type="checkbox" ng-model="artist.enabled">
+          <span class="artist-name enabled-{{artist.enabled}}">{{artist.name}}</span>
+        </li>
       </ul>
     </div>
   </body>
+    <script src="static/js/angular.min.js"></script>
+    <script src="static/js/artist.js"></script>
 </html>

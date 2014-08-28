@@ -3,6 +3,7 @@
 body {
   color: #E198B2;
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 
 body, input {
@@ -22,16 +23,41 @@ body, input {
   float: right;
 }
 
-.input-container {
-  padding: 10px;
+#input-container {
+  margin: 20px auto;
 }
 
-input {
+#input-search {
   font-size: 83px;
   outline: 0;
   color: #E198B2;
   border: 0;
   width: 600px;
+}
+
+#results-container {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+#results-list {
+  width: 580px;
+  margin: 0 auto;
+}
+
+#results-list li {
+  text-align: left;
+  color: #b188a2;
+}
+
+#results-list li:hover {
+  color: #d9adc9;
+  cursor: pointer;
+}
+
+.result-name {
+  font-size: 30px;
 }
 
 ul {
@@ -45,16 +71,16 @@ li {
 
 #album-list {
   font-size: 30px;
-  padding: 40px 20px;
+  padding: 100px 20px;
 }
 
 #artist-list {
   font-size: 15px;
-  padding: 20px 40px;
+  padding: 10px 40px;
 }
 
 #artist-clear {
-  margin-top: 40px;
+  margin-top: 60px;
   padding: 0px 40px;
   color: #cce;
   font-style: underline;
@@ -71,5 +97,13 @@ li {
 
 .artist-name {
   font-style: italic;
+}
+
+.artist-name.enabled-true {
   color: #eebbcc;
+}
+
+.artist-name.enabled-false {
+  font-style: italic;
+  color: #aaa;
 }

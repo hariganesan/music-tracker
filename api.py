@@ -5,13 +5,7 @@ import os
 import logging
 import json
 
-from google.appengine.ext.webapp import template
 import webapp2
-
-# spits a path to a request handler
-def spitPath(self, path):
-	fullPath = os.path.join(os.path.dirname(__file__), path)
-	self.response.out.write(template.render(fullPath, {}))
 
 #########################
 # Static Handlers
@@ -20,7 +14,10 @@ def spitPath(self, path):
 # main routes to static pages
 class MainPageHandler(webapp2.RequestHandler):
 	def get(self):
-		spitPath(self, "templates/index.html")
+		with open("templates/index.html") as index_file:
+			html = index_file.read()
+
+		self.response.write(html)
 
 
 app = webapp2.WSGIApplication([
