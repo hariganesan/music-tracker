@@ -69,9 +69,17 @@ li {
   list-style-type: none;
 }
 
+#album-container {
+  width: 80%;
+}
+
 #album-list {
   font-size: 30px;
   padding: 100px 20px;
+}
+
+#artist-container {
+  width: 20%;
 }
 
 #artist-list {
@@ -99,6 +107,10 @@ li {
   font-style: italic;
 }
 
+#artist-list li:hover {
+  cursor: pointer;
+}
+
 .artist-name.enabled-true {
   color: #eebbcc;
 }
@@ -106,4 +118,12 @@ li {
 .artist-name.enabled-false {
   font-style: italic;
   color: #aaa;
+}
+
+.artist-name.enabled-true:hover {
+  color: #ffccdd;
+}
+
+.artist-name.enabled-false:hover {
+  color: #ccc;
 }
